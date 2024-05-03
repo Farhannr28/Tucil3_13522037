@@ -1,17 +1,23 @@
 package src;
 
 import java.io.IOException;
+import java.util.ArrayList;
 
 import src.IO;
 import src.FileReader;
 import src.Trie;
 import src.Adjacency;
+import src.Algorithm;
+import src.UCS;
+import src.GreedyBestFirstSearch;
+import src.AStar;
 
 public class Solver {
     private static IO io;
     private static FileReader fr;
     private static Trie tr;
     private static Adjacency adj;
+    private ArrayList<String> solution;
 
     public Solver() throws InterruptedException, IOException{
         io = new IO();
@@ -30,15 +36,20 @@ public class Solver {
         loadingThread.start();
         io.loadingScreen(loadingThread);
         io.startProgram();
-        // String[] temp = new String[100];
-        // temp = adj.getAdjacency("dick");
-        // for (String w : temp){
-        //     System.out.println(w);
-        // }
-        // System.out.println();
-        // temp = adj.getAdjacency("duck");
-        // for (String w : temp){
-        //     System.out.println(w);
-        // }
+        solution = new ArrayList<String>();
+        if (io.getSelection() == 1){
+            Algorithm ucs = new UCS(io.getOrigin(), io.getTarget());
+            ucs.doAlgorithm(adj);
+            solution = ucs.getSolutionPath();
+        } else if (io.getSelection() == 2){
+            Algorithm gbfs = new GreedyBestFirstSearch(io.getOrigin(), io.getTarget());
+            gbfs.doAlgorithm(adj);
+            solution = gbfs.getSolutionPath();
+        } else {
+            Algorithm A = new AStar(io.getOrigin(), io.getTarget());
+            A.doAlgorithm(adj);
+            solution = A.getSolutionPath();
+        }
+        io.printSolution(solution);
     }
 }

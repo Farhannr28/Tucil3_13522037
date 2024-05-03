@@ -1,6 +1,6 @@
 package src;
 
-import java.util.Scanner;
+import java.util.*;
 import java.io.IOException;
 
 public class IO {
@@ -26,8 +26,20 @@ public class IO {
         }
     }
 
-    /* PRINT METHODS */
+    /* Getter */
+    public String getOrigin(){
+        return origin;
+    }
 
+    public String getTarget(){
+        return target;
+    }
+
+    public int getSelection(){
+        return algorithmSelection;
+    }
+
+    /* PRINT METHODS */
     public void loadingScreen(Thread backgroundThread) throws InterruptedException, IOException{
         clearScreen();
         System.out.print("""
@@ -97,7 +109,6 @@ public class IO {
         this.firstGreeting();
         randomNumber = (System.currentTimeMillis()/1000) % 4;
         this.askInputs();
-        this.waitingAnimation();
     }
 
     public void showTitle(){
@@ -113,7 +124,7 @@ public class IO {
     }
 
     public void firstGreeting(){
-        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>");
+        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>");
         System.out.println();
         System.out.println(">>> Welcome to Word Ladder Solver");
         System.out.println(">>> This solver will find optimum path in a word ladder game for any 2 word in the English dictionary");
@@ -194,7 +205,20 @@ public class IO {
         System.out.println();
     }
 
-    public void waitingAnimation(){
-        System.out.println("Building Your Ladder");
+    public void printSolution(ArrayList<String> sol){
+        if (sol.isEmpty()){
+            System.out.println(">>> There is no solution found for this word ladder!");
+        } else {
+            System.out.println(">>> Building your Ladder!");
+            System.out.println();
+            for (String word : sol){
+                System.out.print("╬═╬ ");
+                for (int i=0; i<word.length(); i++){
+                    System.out.print(word.charAt(i) + " ");
+                }
+                System.out.println();
+            }
+        }
+        System.out.println();
     }
 }

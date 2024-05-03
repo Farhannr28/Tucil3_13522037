@@ -7,7 +7,11 @@ import src.Solver;
 class Main {
     private static Solver solver;
 
-    public static void main(String[] args) throws InterruptedException, IOException{
-        solver = new Solver();
+    public static void main(String[] args){
+        try {
+            solver = new Solver();
+        } catch (Exception e){
+            e.printStackTrace();
+        }
     }
 }
