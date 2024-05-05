@@ -10,6 +10,7 @@ abstract class Algorithm {
     private ArrayList<String> solutionPath;
     private String start;
     private String end;
+    private int nodeVisited;
 
 
     public Algorithm(String _start, String _end){
@@ -22,6 +23,10 @@ abstract class Algorithm {
 
     public ArrayList<String> getSolutionPath(){
         return solutionPath;
+    }
+
+    public int getNodeVisited(){
+        return nodeVisited;
     }
 
     public int hammingDistanceToEnd(String x){
@@ -50,16 +55,16 @@ abstract class Algorithm {
         SearchNode neighborNode = new SearchNode();
         Integer tempInteger;
         boolean found = false;
+        nodeVisited = 0;
 
         while (!pq.isEmpty() && !found){
             curr = pq.poll();
-            // System.out.println(curr.getID() + " " + curr.getG() + " " + curr.getH());
+            nodeVisited++;
             arr = adj.getAdjacency(curr.getID());
             for (String neighbor : arr){
                 neighborNode = new SearchNode(neighbor, curr);
                 neighborNode.setG(calculateG(neighborNode));
                 neighborNode.setH(calculateH(neighborNode));
-                // System.out.println(neighborNode.getID() + " " + neighborNode.getG() + " " + neighborNode.getH());
                 if (neighbor.equals(end)){
                     solutionPath = constructSolution(neighborNode);
                     found = true;
@@ -70,12 +75,10 @@ abstract class Algorithm {
                     if (m.get(neighbor) > tempInteger){
                         m.put(neighbor, tempInteger);
                         pq.add(neighborNode);
-                        // System.out.println(neighborNode.getID() + neighborNode.getF());
                     }
                 } else {
                     m.put(neighbor, neighborNode.getF());
                     pq.add(neighborNode);
-                    // System.out.println(neighborNode.getID() + neighborNode.getF());
                 }
             }
         }

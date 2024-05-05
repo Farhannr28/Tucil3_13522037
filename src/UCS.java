@@ -11,13 +11,11 @@ public class UCS extends Algorithm{
 
     @Override
     public int calculateG(SearchNode n){
-        // System.out.println("G UCS");
         return n.getParent().getG()+1;
     }
 
     @Override
     public int calculateH(SearchNode n){
-        // System.out.println("H UCS");
         return 0;
     }
 }

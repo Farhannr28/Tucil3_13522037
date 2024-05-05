@@ -18,6 +18,8 @@ public class Solver {
     private static Trie tr;
     private static Adjacency adj;
     private ArrayList<String> solution;
+    private long calculationDuration;
+    private int numVisited;
 
     public Solver() throws InterruptedException, IOException{
         io = new IO();
@@ -35,21 +37,47 @@ public class Solver {
         });
         loadingThread.start();
         io.loadingScreen(loadingThread);
-        io.startProgram();
-        solution = new ArrayList<String>();
-        if (io.getSelection() == 1){
-            Algorithm ucs = new UCS(io.getOrigin(), io.getTarget());
-            ucs.doAlgorithm(adj);
-            solution = ucs.getSolutionPath();
-        } else if (io.getSelection() == 2){
-            Algorithm gbfs = new GreedyBestFirstSearch(io.getOrigin(), io.getTarget());
-            gbfs.doAlgorithm(adj);
-            solution = gbfs.getSolutionPath();
-        } else {
-            Algorithm A = new AStar(io.getOrigin(), io.getTarget());
-            A.doAlgorithm(adj);
-            solution = A.getSolutionPath();
+        io.showTitle();
+        io.firstGreeting();
+        this.startProgram();
+    }
+
+    public void startProgram(){
+        boolean restart = true;
+        while (restart){
+            io.askInputs(tr);
+            solution = new ArrayList<String>();
+            long startTime = System.currentTimeMillis();
+            if (io.getSelection() == 1){
+                Algorithm algorithm = new UCS(io.getOrigin(), io.getTarget());
+                algorithm.doAlgorithm(adj);
+                solution = algorithm.getSolutionPath();
+                numVisited = algorithm.getNodeVisited();
+                algorithm = null;
+            } else if (io.getSelection() == 2){
+                Algorithm algorithm = new GreedyBestFirstSearch(io.getOrigin(), io.getTarget());
+                algorithm.doAlgorithm(adj);
+                solution = algorithm.getSolutionPath();
+                numVisited = algorithm.getNodeVisited();
+                algorithm = null;
+            } else {
+                Algorithm algorithm = new AStar(io.getOrigin(), io.getTarget());
+                algorithm.doAlgorithm(adj);
+                solution = algorithm.getSolutionPath();
+                numVisited = algorithm.getNodeVisited();
+                algorithm = null;
+            }
+            long endTime = System.currentTimeMillis();
+            calculationDuration = endTime - startTime;
+            io.printSolution(solution);
+            io.printSearchData(numVisited, calculationDuration, solution.size());
+            if (io.askToRestart()){
+                io.nextGreeting();
+            } else {
+                restart = false;
+                System.out.println("Thank you for using Word Ladder Solver, see you next time!");
+                System.out.println("Closing Program...");
+            }
         }
-        io.printSolution(solution);
     }
 }

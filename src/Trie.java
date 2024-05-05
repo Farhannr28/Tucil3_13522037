@@ -45,27 +45,4 @@ public class Trie {
             this.insert(arr[i]);
         }
     }
-
-    // public static void main(String[] args) {
-    //     FileReader fr = new FileReader();
-    //     long maxMemory = Runtime.getRuntime().maxMemory();
-    //     long beforeUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
-    //     Trie t = new Trie();
-    //     for (int i=0; i<fr.getWordList().length; i++){
-    //         t.insert(fr.getWordList()[i]);
-    //     }
-    //     System.out.println(t.search("farhan"));
-    //     System.out.println(t.search("zubeneschamali"));
-    //     System.out.println(t.search("organisationally"));
-    //     System.out.println(t.search("jksadhiwhoa"));
-    //     System.out.println(t.search("iaodhawdioa"));
-    //     System.out.println(t.search("livelihoods"));
-    //     System.out.println(t.search("rontgenographically"));
-    //     System.out.println(t.search("bahasa"));
-    //     System.out.println(t.numNode);
-    //     long afterUsedMem=Runtime.getRuntime().totalMemory()-Runtime.getRuntime().freeMemory();
-    //     long actualMemUsed=afterUsedMem-beforeUsedMem;
-    //     System.out.println(actualMemUsed);
-    //     System.out.println(maxMemory);
-    // }
 }

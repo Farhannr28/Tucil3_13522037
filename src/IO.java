@@ -3,10 +3,13 @@ package src;
 import java.util.*;
 import java.io.IOException;
 
+import src.PrintColor;
+
 public class IO {
 
     /* ATTRIBUTES */
-    Scanner scanner = new Scanner(System.in);  
+    private Scanner scanner = new Scanner(System.in);  
+    private PrintColor pc;
     private String origin;  
     private String target;
     private long randomNumber;  
@@ -14,7 +17,9 @@ public class IO {
     private int threadSleepTime = 500;
     
     /* CONSTRUCTOR METHOD*/
-    public IO(){}
+    public IO(){
+        pc = new PrintColor();
+    }
 
     /* clearScreen Method */
     public static void clearScreen() throws InterruptedException, IOException {
@@ -28,11 +33,11 @@ public class IO {
 
     /* Getter */
     public String getOrigin(){
-        return origin;
+        return origin.toLowerCase();
     }
 
     public String getTarget(){
-        return target;
+        return target.toLowerCase();
     }
 
     public int getSelection(){
@@ -41,77 +46,73 @@ public class IO {
 
     /* PRINT METHODS */
     public void loadingScreen(Thread backgroundThread) throws InterruptedException, IOException{
+        pc.PrintBlue();
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                █▒▒▒▒▒▒▒▒▒ 10%
+                ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 10%
                     """);
         Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                ██▒▒▒▒▒▒▒▒ 20%
+                ████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 20%
                     """);
         Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                ███▒▒▒▒▒▒▒ 30%
+                ██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 30%
                     """);
         Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                ████▒▒▒▒▒▒ 40%
+                ████████▒▒▒▒▒▒▒▒▒▒▒▒ 40%
                     """);
         Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                █████▒▒▒▒▒ 50%
+                ██████████▒▒▒▒▒▒▒▒▒▒ 50%
                     """);
         Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                ██████▒▒▒▒ 60%
+                ████████████▒▒▒▒▒▒▒▒ 60%
                     """);
         Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                ███████▒▒▒ 70%
+                ██████████████▒▒▒▒▒▒ 70%
                     """);
         Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                ████████▒▒ 80%
+                ████████████████▒▒▒▒ 80%
                     """);
         backgroundThread.join();
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                █████████▒ 90%
+                ██████████████████▒▒ 90%
                     """);
         Thread.sleep(300);
         clearScreen();
         System.out.print("""
                 Program Initializing...
-                ██████████ 100%
+                ████████████████████ 100%
                     """);
         Thread.sleep(300);
         clearScreen();
-    }
-
-    public void startProgram(){
-        this.showTitle();
-        this.firstGreeting();
-        randomNumber = (System.currentTimeMillis()/1000) % 4;
-        this.askInputs();
+        pc.PrintReset();
     }
 
     public void showTitle(){
+        pc.PrintCyan();
         System.out.println();
         System.out.println("░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░░▒▓██████▓▒░░▒▓███████▓▒░░▒▓███████▓▒░       ░▒▓█▓▒░       ░▒▓██████▓▒░░▒▓███████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░▒▓███████▓▒░  ");
         System.out.println("░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ ");
@@ -121,17 +122,63 @@ public class IO {
         System.out.println("░▒▓█▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░      ░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓█▓▒░      ░▒▓█▓▒░░▒▓█▓▒░ ");
         System.out.println(" ░▒▓█████████████▓▒░ ░▒▓██████▓▒░░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░       ░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░▒▓███████▓▒░░▒▓███████▓▒░░▒▓████████▓▒░▒▓█▓▒░░▒▓█▓▒░ ");
         System.out.println();
+        pc.PrintReset();
     }
 
     public void firstGreeting(){
+        pc.PrintYellow();
         System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>");
+        pc.PrintReset();
         System.out.println();
         System.out.println(">>> Welcome to Word Ladder Solver");
         System.out.println(">>> This solver will find optimum path in a word ladder game for any 2 word in the English dictionary");
         System.out.println();
     }
 
-    public void askInputs(){
+    public void askInputs(Trie tr){
+        randomNumber = (System.currentTimeMillis()/1000) % 4;
+        askOrigin();
+        while (!tr.search(this.getOrigin())){
+            System.out.println(pc.RED + "!!! " +  this.origin+ " doesn't exists in Dictionary, pick another word!" + pc.DEFAULT);
+            pc.PrintGreen();
+            System.out.print("??? ");
+            this.origin = scanner.nextLine();
+            pc.PrintReset();
+            this.origin = this.origin.toUpperCase();
+            System.out.println();
+        }
+        askTarget();
+        boolean isValid;
+        if (!tr.search(this.getTarget())){
+            System.out.println(pc.RED + "!!! " + this.target +  " doesn't exists in Dictionary, pick another word!" + pc.DEFAULT);
+            isValid = false;
+        } else if (this.origin.length() != this.target.length()){
+            System.out.println(pc.RED + "!!! Word length doesn't match, pick another ending word!" + pc.DEFAULT);
+            isValid = false;
+        } else {
+            isValid = true;
+        }
+        while (!isValid){
+            pc.PrintGreen();
+            System.out.print("??? ");
+            this.target = scanner.nextLine();
+            pc.PrintReset();
+            this.target = this.target.toUpperCase();
+            System.out.println();
+            if (!tr.search(this.getTarget())){
+                System.out.println(pc.RED + "!!! " + this.target + " doesn't exists in Dictionary, pick another word!" + pc.DEFAULT);
+                isValid = false;
+            } else if (this.origin.length() != this.target.length()){
+                System.out.println(pc.RED + "!!! Word length doesn't match, pick another ending word!" + pc.DEFAULT);
+                isValid = false;
+            } else {
+                isValid = true;
+            }
+        }
+        askSelection();
+    }
+
+    public void askOrigin(){
         if (this.randomNumber == 0){
             System.out.println(">>> What would the starting word be: ");
         } else if (this.randomNumber == 1){
@@ -141,45 +188,59 @@ public class IO {
         } else {
             System.out.println(">>> Enter a word to begin our search: ");
         }
+        pc.PrintGreen();
         System.out.print("??? ");
         this.origin = scanner.nextLine();
+        pc.PrintReset();
+        this.origin = this.origin.toUpperCase();
         System.out.println();
+    }
+
+    public void askTarget(){
         if (this.randomNumber == 0){
-            System.out.println(">>> Good!, " + this.origin + " is the starting word");
+            System.out.println(">>> Good!, " + pc.GREEN +  this.origin + pc.DEFAULT + " is the starting word");
             System.out.println(">>> Now what would the ending word be: ");
         } else if (this.randomNumber == 1){
-            System.out.println(">>> Sublime!, " + this.origin + " is the origin word");
+            System.out.println(">>> Sublime!, " + pc.GREEN +  this.origin + pc.DEFAULT + " is the origin word");
             System.out.println(">>> Next, Please input the ending word: ");
         } else if (this.randomNumber == 2){
-            System.out.println(">>> Our search will start from " + this.origin);
+            System.out.println(">>> Our search will start from " + pc.GREEN +  this.origin + pc.DEFAULT);
             System.out.println(">>> Where will we end our search: ");
         } else {
-            System.out.println(">>> " + this.origin + " is entered, excellent!");
+            System.out.println(">>> " + pc.GREEN +  this.origin + pc.DEFAULT + " is entered, excellent!");
             System.out.println(">>> Now enter the word to end with: ");
         }
+        pc.PrintGreen();
         System.out.print("??? ");
         this.target = scanner.nextLine();
+        pc.PrintReset();
+        this.target = this.target.toUpperCase();
         System.out.println();
+    }
+    
+    public void askSelection(){
         if (this.randomNumber == 0){
-            System.out.println(">>> Great!, " + this.target + " is the end");
+            System.out.println(">>> Great!, " + pc.GREEN +  this.target + pc.DEFAULT + " is the end");
             System.out.println();
             System.out.println(">>> Now what algorithm would be used:");
         } else if (this.randomNumber == 1){
-            System.out.println(">>> Superb!, " + this.target + " is the ending word");
+            System.out.println(">>> Superb!, " + pc.GREEN +  this.target + pc.DEFAULT + " is the ending word");
             System.out.println();
             System.out.println(">>> Please choose an algorithm to be used:");
         } else if (this.randomNumber == 2){
-            System.out.println(">>> Our search will end at " + this.target);
+            System.out.println(">>> Our search will end at " + pc.GREEN +  this.target + pc.DEFAULT);
             System.out.println();
             System.out.println(">>> Before we begin our search, pick one of the following algoritm:");
         } else {
-            System.out.println(">>> " + this.target + " is sucessfully entered");
+            System.out.println(">>> " + pc.GREEN +  this.target + pc.DEFAULT + " is sucessfully entered");
             System.out.println();
             System.out.println(">> Next, an algorithm for the searching process:");
         }
+        pc.PrintPurple();
         System.out.println("1. Uniform Cost Search");
         System.out.println("2. Greedy Best First Search");
         System.out.println("3. A*");
+        pc.PrintReset();
         System.out.println();
         if (this.randomNumber == 0){
             System.out.println(">>> What algorithm number would be used: ");
@@ -190,16 +251,31 @@ public class IO {
         } else {
             System.out.println(">>> Enter an algorithm number: ");
         }
+        pc.PrintGreen();
         System.out.print("??? ");
         this.algorithmSelection = Integer.parseInt(scanner.nextLine());
+        pc.PrintReset();
         System.out.println();
+        while (this.algorithmSelection < 0 || this.algorithmSelection > 3){
+            System.out.println(pc.RED + "!!! Algorithms selection is Invalid, Pick a number between 1 and 3" + pc.DEFAULT);
+            pc.PrintGreen();
+            System.out.print("??? ");
+            this.algorithmSelection = Integer.parseInt(scanner.nextLine());
+            pc.PrintReset();
+            System.out.println();
+        }
+        String[] algoList = {"Uniform Cost Search", "Greedy Best First Search", "A*"};
         if (this.randomNumber == 0){
+            System.out.println(">>> " + algoList[this.algorithmSelection-1] + " would be used");
             System.out.println(">>> Fantastic!, we can finally start the search");
         } else if (this.randomNumber == 1){
+            System.out.println(">>> " + algoList[this.algorithmSelection-1] + " is the choosen Algorithm");
             System.out.println(">>> Please be patient while the solver is starting");
         } else if (this.randomNumber == 2){
+            System.out.println(">>> You selected " + algoList[this.algorithmSelection-1]);
             System.out.println(">>> Marvelous!, let's start our search for a solution");
         } else {
+            System.out.println(">>> " + algoList[this.algorithmSelection-1] + " has been entered as the search Algorithm");
             System.out.println(">>> We can finally begin!");
         }
         System.out.println();
@@ -212,13 +288,52 @@ public class IO {
             System.out.println(">>> Building your Ladder!");
             System.out.println();
             for (String word : sol){
-                System.out.print("╬═╬ ");
+                pc.PrintYellow();
+                System.out.print("╬═╬  ");
+                pc.PrintReset();
                 for (int i=0; i<word.length(); i++){
-                    System.out.print(word.charAt(i) + " ");
+                    if (word.charAt(i) == target.charAt(i)){
+                        pc.PrintGreen();
+                        System.out.print(word.charAt(i) + " ");
+                        pc.PrintReset();
+                    } else {
+                        System.out.print(word.charAt(i) + " ");
+                    }
                 }
                 System.out.println();
             }
         }
         System.out.println();
+    }
+
+    public void printSearchData(int numVisited, long calculationDuration, int pathlength){
+        System.out.println(">>> Number of nodes visited are " + pc.RED + numVisited + " Nodes" + pc.DEFAULT);
+        System.out.println(">>> The path found is " + pc.RED + pathlength + " words long" + pc.DEFAULT);
+        System.out.println(">>> Time taken to find solution is " + pc.RED + calculationDuration + " miliseconds" + pc.DEFAULT);
+        System.out.println();
+    }
+
+    public void nextGreeting(){
+        pc.PrintYellow();
+        System.out.println("<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:>:<:><:>:<:>:<:>:<:>:<:>:<:>:<:>");
+        pc.PrintReset();
+        System.out.println();
+        System.out.println(">>> Welcome back!, what Word Ladder game would you try this time");
+        System.out.println();
+    }
+
+    public boolean askToRestart(){
+        String input;
+        System.out.println(">>> Do you want to try another word ladder " + pc.BRIGHTBLUE + "(Yes/No): " + pc.DEFAULT);
+        pc.PrintGreen();
+        System.out.print("??? ");
+        input = scanner.nextLine();
+        pc.PrintReset();
+        System.out.println();
+        if (input.equals("YES") || input.equals("Yes") || input.equals("yes") || input.equals("Y") || input.equals("y")){
+            return true;
+        } else {
+            return false;
+        }
     }
 }
