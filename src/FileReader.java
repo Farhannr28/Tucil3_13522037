@@ -6,7 +6,7 @@ import java.util.*;
 public class FileReader {
     private Scanner sc;
     private String[] wordList;
-    private int wordCount = 370105;
+    private int wordCount = 80368;
 
     public FileReader(){
         wordList = new String[wordCount];

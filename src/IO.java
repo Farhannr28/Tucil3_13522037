@@ -14,7 +14,7 @@ public class IO {
     private String target;
     private long randomNumber;  
     private Integer algorithmSelection;
-    private int threadSleepTime = 500;
+    private int threadSleepTime = 200;
     
     /* CONSTRUCTOR METHOD*/
     public IO(){
@@ -82,11 +82,11 @@ public class IO {
         clearScreen();
         System.out.print("Program Initializing...\n" +
                  "██████████████████▒▒ 90%\n");
-        Thread.sleep(300);
+        Thread.sleep(threadSleepTime);
         clearScreen();
         System.out.print("Program Initializing...\n" +
                  "████████████████████ 100%\n");
-        Thread.sleep(300);
+        Thread.sleep(threadSleepTime);
         clearScreen();
         pc.PrintReset();
     }
@@ -263,7 +263,9 @@ public class IO {
 
     public void printSolution(ArrayList<String> sol){
         if (sol.isEmpty()){
+            pc.PrintYellow();
             System.out.println(">>> There is no solution found for this word ladder!");
+            pc.PrintReset();
         } else {
             System.out.println(">>> Building your Ladder!");
             System.out.println();
