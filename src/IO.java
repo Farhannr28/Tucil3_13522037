@@ -246,16 +246,16 @@ public class IO {
         }
         String[] algoList = {"Uniform Cost Search", "Greedy Best First Search", "A*"};
         if (this.randomNumber == 0){
-            System.out.println(">>> " + algoList[this.algorithmSelection-1] + " would be used");
+            System.out.println(">>> " + pc.PURPLE + algoList[this.algorithmSelection-1] + pc.DEFAULT + " would be used");
             System.out.println(">>> Fantastic!, we can finally start the search");
         } else if (this.randomNumber == 1){
-            System.out.println(">>> " + algoList[this.algorithmSelection-1] + " is the choosen Algorithm");
+            System.out.println(">>> " + pc.PURPLE + algoList[this.algorithmSelection-1] + pc.DEFAULT + " is the choosen Algorithm");
             System.out.println(">>> Please be patient while the solver is starting");
         } else if (this.randomNumber == 2){
-            System.out.println(">>> You selected " + algoList[this.algorithmSelection-1]);
+            System.out.println(">>> You selected " + pc.PURPLE + algoList[this.algorithmSelection-1] + pc.DEFAULT);
             System.out.println(">>> Marvelous!, let's start our search for a solution");
         } else {
-            System.out.println(">>> " + algoList[this.algorithmSelection-1] + " has been entered as the search Algorithm");
+            System.out.println(">>> " + pc.PURPLE + algoList[this.algorithmSelection-1] + pc.DEFAULT + " has been entered as the search Algorithm");
             System.out.println(">>> We can finally begin!");
         }
         System.out.println();

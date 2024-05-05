@@ -47,27 +47,32 @@ public class Solver {
         while (restart){
             io.askInputs(tr);
             solution = new ArrayList<String>();
-            long startTime = System.currentTimeMillis();
+            long startTime, endTime;
             if (io.getSelection() == 1){
                 Algorithm algorithm = new UCS(io.getOrigin(), io.getTarget());
+                startTime = System.currentTimeMillis();
                 algorithm.doAlgorithm(adj);
+                endTime = System.currentTimeMillis();
                 solution = algorithm.getSolutionPath();
                 numVisited = algorithm.getNodeVisited();
                 algorithm = null;
             } else if (io.getSelection() == 2){
                 Algorithm algorithm = new GreedyBestFirstSearch(io.getOrigin(), io.getTarget());
+                startTime = System.currentTimeMillis();
                 algorithm.doAlgorithm(adj);
+                endTime = System.currentTimeMillis();
                 solution = algorithm.getSolutionPath();
                 numVisited = algorithm.getNodeVisited();
                 algorithm = null;
             } else {
                 Algorithm algorithm = new AStar(io.getOrigin(), io.getTarget());
+                startTime = System.currentTimeMillis();
                 algorithm.doAlgorithm(adj);
+                endTime = System.currentTimeMillis();
                 solution = algorithm.getSolutionPath();
                 numVisited = algorithm.getNodeVisited();
                 algorithm = null;
             }
-            long endTime = System.currentTimeMillis();
             calculationDuration = endTime - startTime;
             io.printSolution(solution);
             io.printSearchData(numVisited, calculationDuration, solution.size());
