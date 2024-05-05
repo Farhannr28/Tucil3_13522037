@@ -48,64 +48,44 @@ public class IO {
     public void loadingScreen(Thread backgroundThread) throws InterruptedException, IOException{
         pc.PrintBlue();
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 10%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "██▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 10%\n");
         Thread.sleep(threadSleepTime);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 20%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "████▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 20%\n");
         Thread.sleep(threadSleepTime);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 30%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "██████▒▒▒▒▒▒▒▒▒▒▒▒▒▒ 30%\n");
         Thread.sleep(threadSleepTime);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ████████▒▒▒▒▒▒▒▒▒▒▒▒ 40%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "████████▒▒▒▒▒▒▒▒▒▒▒▒ 40%\n");
         Thread.sleep(threadSleepTime);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ██████████▒▒▒▒▒▒▒▒▒▒ 50%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "██████████▒▒▒▒▒▒▒▒▒▒ 50%\n");
         Thread.sleep(threadSleepTime);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ████████████▒▒▒▒▒▒▒▒ 60%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "████████████▒▒▒▒▒▒▒▒ 60%\n");
         Thread.sleep(threadSleepTime);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ██████████████▒▒▒▒▒▒ 70%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "██████████████▒▒▒▒▒▒ 70%\n");
         Thread.sleep(threadSleepTime);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ████████████████▒▒▒▒ 80%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "████████████████▒▒▒▒ 80%\n");
         backgroundThread.join();
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ██████████████████▒▒ 90%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "██████████████████▒▒ 90%\n");
         Thread.sleep(300);
         clearScreen();
-        System.out.print("""
-                Program Initializing...
-                ████████████████████ 100%
-                    """);
+        System.out.print("Program Initializing...\n" +
+                 "████████████████████ 100%\n");
         Thread.sleep(300);
         clearScreen();
         pc.PrintReset();
@@ -324,7 +304,7 @@ public class IO {
 
     public boolean askToRestart(){
         String input;
-        System.out.println(">>> Do you want to try another word ladder " + pc.BRIGHTBLUE + "(Yes/No): " + pc.DEFAULT);
+        System.out.println(">>> Do you want to try another word ladder " + pc.BRIGHTBLUE + "(Yes/No) " + pc.DEFAULT);
         pc.PrintGreen();
         System.out.print("??? ");
         input = scanner.nextLine();
@@ -335,5 +315,12 @@ public class IO {
         } else {
             return false;
         }
+    }
+
+    public void closeProgram(){
+        pc.PrintBlue();
+        System.out.println("Thank you for using Word Ladder Solver, see you next time!");
+        System.out.println("Closing Program...");
+        pc.PrintReset();
     }
 }

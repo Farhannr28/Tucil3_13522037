@@ -74,9 +74,8 @@ public class Solver {
             if (io.askToRestart()){
                 io.nextGreeting();
             } else {
+                io.closeProgram();
                 restart = false;
-                System.out.println("Thank you for using Word Ladder Solver, see you next time!");
-                System.out.println("Closing Program...");
             }
         }
     }
