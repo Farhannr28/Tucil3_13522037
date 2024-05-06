@@ -3,8 +3,6 @@ package src;
 import java.util.*;
 import java.io.IOException;
 
-import src.PrintColor;
-
 public class IO {
 
     /* ATTRIBUTES */

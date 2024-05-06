@@ -2,8 +2,6 @@ package src;
 
 import java.util.*;
 
-import src.SearchNode;
-
 abstract class Algorithm {
     private PriorityQueue<SearchNode> pq;
     private Map<String, Integer> m;

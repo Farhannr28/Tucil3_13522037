@@ -3,15 +3,6 @@ package src;
 import java.io.IOException;
 import java.util.ArrayList;
 
-import src.IO;
-import src.FileReader;
-import src.Trie;
-import src.Adjacency;
-import src.Algorithm;
-import src.UCS;
-import src.GreedyBestFirstSearch;
-import src.AStar;
-
 public class Solver {
     private static IO io;
     private static FileReader fr;

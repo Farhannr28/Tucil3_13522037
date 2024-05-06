@@ -1,8 +1,5 @@
 package src;
 
-import src.Algorithm;
-import src.SearchNode;
-
 public class GreedyBestFirstSearch extends Algorithm{
 
     GreedyBestFirstSearch(String _start, String _end){

@@ -1,8 +1,5 @@
 package src;
 
-import java.util.*;
-import src.TrieNode;
-
 public class Trie {
 
     /* Attributes */
