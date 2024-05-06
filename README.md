@@ -15,10 +15,11 @@
 </div>
 
 <h2 id="description"> Description </h2>
-Java based Word Ladder Solver Using UCS, Greedy Best First Search, and A* 
+Word ladder (also known with many names such as Doublets, word-links, change-the-word puzzles, paragrams, laddergrams, or word golf) is one of the famous word puzzles. Word ladder was first invented by Lewis Carroll, a writer and mathematician, back in 1877. The puzzle starts with 2 words, to solve the puzzle one must find a chain of other words to link the two, in which two succesive words must differ by one letter only. This Java program can find the optimal (for most cases) solution for any solvable game of Word Ladder. 3 different algorithms are provided to be used including Uniform Cost Search, Greedy Best First Search, and A*.
 
 <br>
 
+## Table of Contents
 <!-- TABLE OF CONTENTS -->
 <details>
   <summary>Table of Contents</summary>
@@ -51,7 +52,7 @@ Java based Word Ladder Solver Using UCS, Greedy Best First Search, and A*
 ## External Links
 
 - [Spesifikasi](https://bit.ly/spektucil3stima24)
-- [Laporan](github.com/Farhannr28/Tucil3_13522037/blob/main/doc/Tucil3_13522037.pdf)
+- [Laporan](https://github.com/Farhannr28/Tucil3_13522037/blob/main/doc/Tucil3_13522037.pdf)
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
@@ -124,3 +125,6 @@ Project dependencies
 </pre>
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
+
+<!-- MARKDOWN LINKS -->
+[issues-url]: https://github.com/Farhannr28/Tucil3_13522037/issues
