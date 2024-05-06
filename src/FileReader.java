@@ -21,7 +21,7 @@ public class FileReader {
         int i = 0;
         String word;
         try{
-            sc = new Scanner(new File("res/words.txt"));
+            sc = new Scanner(new File("../res/words.txt"));
             while (sc.hasNextLine()){
                 word = sc.nextLine();
                 wordList[i] = word;
