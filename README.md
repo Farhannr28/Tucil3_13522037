@@ -63,7 +63,7 @@ Word ladder (also known with many names such as Doublets, word-links, change-the
 
 Project dependencies  
 
-* Java at least Java 22  
+* Java at least Java 18  
   https://www.java.com/en/download/
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
@@ -88,7 +88,7 @@ Project dependencies
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
 ### How to Use
-1. Enter the starting and ending word in the dialogue provided
+1. Enter the origin and target word in the dialogue provided
 
 ![One](https://github.com/Farhannr28/Tucil3_13522037/blob/main/img/1.png)
 
@@ -104,16 +104,18 @@ Project dependencies
 
 ![Four](https://github.com/Farhannr28/Tucil3_13522037/blob/main/img/4.png)
 
+<p align="right">(<a href="#readme-top">back to top</a>)</p>
+
 <!-- FEATURES -->
 ## Features
 
-### 1. Input source and target word
-### 2. Use Uniform Cost Search
-### 3. Use Greedy Best First Search
-### 4. Use A* Search
-### 5. Shows solution path
-### 6. Shows time taken (in milliseconds)
-### 7. Shows amount of node visited
+- [x] Input origin and target word
+- [x] Run Uniform Cost Search
+- [x] Run Greedy Best First Search
+- [x] Run A* Search
+- [x] Shows solution path
+- [x] Shows time taken (in milliseconds)
+- [x] Shows amount of node visited
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
