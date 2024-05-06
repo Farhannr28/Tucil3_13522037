@@ -12,7 +12,7 @@ public class IO {
     private String target;
     private long randomNumber;  
     private Integer algorithmSelection;
-    private int threadSleepTime = 200;
+    private int threadSleepTime = 150;
     
     /* CONSTRUCTOR METHOD*/
     public IO(){

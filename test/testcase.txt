@@ -1,0 +1,23 @@
+- Test Case 1
+Origin: POOL
+Target: MILK
+
+- Test Case 2
+Origin: CHANGE
+Target: COMEDO
+
+- Test Case 3
+Origin: MOTION
+Target: ACTION
+
+- Test Case 4
+Origin: GIMLETS
+Target: TREEING
+
+- Test Case 5
+Origin: KISS
+Target: BABY
+
+- Test Case 6
+Origin: START
+Target: ENDOW
